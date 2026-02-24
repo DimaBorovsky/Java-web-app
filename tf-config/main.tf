@@ -22,6 +22,7 @@ data "aws_ssm_parameter" "amazon_linux" {
 resource "aws_instance" "tf-test" {
   ami  = data.aws_ssm_parameter.amazon_linux.value
   instance_type = "t3.micro"
+  user_data = "/Users/dima.borovsky/Desktop/Java-CI-CD/config-instance.sh"
 
 
 }

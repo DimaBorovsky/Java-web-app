@@ -28,18 +28,6 @@ Python
 
 CI/CD (Jenkins / GitHub Actions / etc.)
 
-📁 Project Structure
-.
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   └── outputs.tf
-│
-├__ app/
-├── Dockerfile
-├── pipeline/ (optional - depends on your CI tool)
-└── README.md
-
 
 ⚙️ How It Works
 1️⃣ Provision Infrastructure

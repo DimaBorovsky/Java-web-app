@@ -35,13 +35,12 @@ CI/CD (Jenkins / GitHub Actions / etc.)
 │   ├── variables.tf
 │   └── outputs.tf
 │
-├── app/
-│   ├── app.py
-│   └── requirements.txt
-│
+├__ app/
 ├── Dockerfile
 ├── pipeline/ (optional - depends on your CI tool)
 └── README.md
+
+
 ⚙️ How It Works
 1️⃣ Provision Infrastructure
 

@@ -121,3 +121,45 @@ Store Terraform state remotely (S3 + DynamoDB)
 👨‍💻 Why I Built This
 
 The purpose of this project is to deeply understand the full lifecycle of deploying an application to the cloud — not just running a server, but managing infrastructure, containers, and deployment automation as a complete system.
+
+
+
+
+Architecture 
+
+
+
+           +-------------------+
+           |   Git Repo (Code) |
+           +---------+---------+
+                     |
+                     v
+           +-------------------+
+           |   CI/CD Pipeline   |
+           | (Jenkins/GH Actions|
+           +----+----------+----+
+                |          |
+     terraform apply       | docker build
+                |          |
+                v          v
+        +-------------------------+
+        | AWS Infrastructure      |
+        |  - EC2                 |
+        |  - Security Group      |
+        |  - IAM Role/Policy     |
+        +------------+------------+
+                     |
+                     v
+        +-------------------------+
+        | EC2 Instance            |
+        |  - Docker runtime       |
+        |  - Runs Python container|
+        +------------+------------+
+                     |
+          writes logs to file (app.log)
+                     |
+                     v
+        +-------------------------+
+        | S3 Bucket (Logs)        |
+        |  - store app.log        |
+        +-------------------------+
